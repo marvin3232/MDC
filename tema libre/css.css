@@ -1,0 +1,191 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  animation: fondoAnimado 10s infinite alternate;
+}
+
+.encabezado {
+  text-align: center;
+  padding: 50px 20px;
+  background: radial-gradient(circle, #111 0%, #1a1a1a 100%);
+  animation: fadeIn 2s ease-in;
+}
+
+.encabezado h1 {
+  font-size: 3rem;
+  color: #ffd700;
+  margin: 20px 0 10px;
+  text-shadow: 0 0 15px #ffd700;
+  animation: rebote 1.5s infinite alternate;
+}
+
+.encabezado p {
+  font-size: 1.2rem;
+  color: #ccc;
+  animation: aparecer 3s ease-out;
+}
+
+.copa {
+  width: 120px;
+  animation: girar 5s linear infinite, brillo 3s infinite alternate;
+}
+
+.partidos {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.partidos h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #00ccff;
+  text-shadow: 0 0 10px #00ccff;
+  animation: parpadeo 1.5s infinite;
+}
+
+.tabla {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fila {
+  background: rgba(28, 28, 28, 0.9);
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s, box-shadow 0.3s;
+  gap: 15px;
+  flex-wrap: wrap;
+  box-shadow: 0 0 15px rgba(0, 204, 255, 0.1);
+}
+
+.fila:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.escudo {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 5px #fff);
+  animation: latido 2s infinite;
+}
+
+.enlace {
+  background-color: #00ccff;
+  color: #0c0c0c;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 0 10px #00ccff;
+}
+
+.enlace:hover {
+  background-color: #00a3cc;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ffff;
+}
+
+.pie {
+  background: #111;
+  text-align: center;
+  padding: 30px;
+  color: #777;
+  font-size: 0.9rem;
+  animation: aparecer 2s ease-in;
+}
+
+@keyframes girar {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes fondoAnimado {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes brillo {
+  0% { filter: drop-shadow(0 0 5px #fff); }
+  100% { filter: drop-shadow(0 0 15px #ffd700); }
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes rebote {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@media (max-width: 600px) {
+  .fila {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.cancha {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(to top, #2c5364, #0f2027);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.jugador {
+  width: 100px;
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  animation: saltar 3s infinite ease-in-out;
+}
+
+.balon {
+  width: 40px;
+  position: absolute;
+  left: 12%;
+  bottom: 0;
+  animation: patear 2s infinite ease-in-out;
+}
+
+@keyframes patear {
+  0%, 100% { transform: translateX(0); }
+  30% { transform: translateX(300px) translateY(-50px) rotate(360deg); }
+  60% { transform: translateX(600px) translateY(0) rotate(720deg); }
+}
+
+@keyframes saltar {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-20px); }
+}
